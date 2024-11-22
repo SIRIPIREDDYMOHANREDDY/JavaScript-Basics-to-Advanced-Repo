@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+  function test(){
+ if(document.forms[0].param1.value.length == 0){
+ alert("pls enter Parameter1");
+document.forms[0].param1.focus();
+return false;
+}
+ if(document.forms[0].param2.value.length == 0){
+ alert("pls enter Parameter2");
+document.forms[0].param2.focus();
+return false;
+		  }
+	  }
+  </script>
+ </head>
+ <body>
+  <form action = "success.html">
+Parameter1 : <input type = "text" name = "param1"> <br>
+Parameter2 : <input type = "text" name = "param2"> <br>
+<input type = "submit" value = "submit" onclick = "return test()">
+</form>
+ </body>
+</html>

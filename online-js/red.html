@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Array Content</title>
+</head>
+<body>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Supplier</th>
+                <th>Manufacture</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+      
+        </tbody>
+    </table>
+
+    <br />
+   
+    <table border="1">
+        <tr>
+            <th>Buttons</th>
+			<th>Links</th>
+        </tr>
+        <tr>
+   <td><input type="button" value="Populate Array Content" onclick="readArrayContent()" /></td>
+   <td><a href='#read' onclick="readArrayContent()">Read Array Content</a></td>
+        </tr>
+        <tr>
+ <td><input type="button" value="Sort by S.No" onclick="sortArrayContentBasedOnSNo()" /></td>
+<td><a href='#SNO' onclick="sortArrayContentBasedOnSNo()">Sort by S.No</a></td>
+        </tr>
+        <tr>
+<td><input type="button" value="Sort by Name" onclick="sortArrayContentBasedOnName()" /></td>
+<td><a href='#Name' onclick="sortArrayContentBasedOnName()">Sort by Name</a></td>
+        </tr>
+        <tr>
+ <td><input type="button" value="Sort by Price" onclick="sortArrayContentBasedOnPrice()" /></td>
+<td><a href='#Price' onclick="sortArrayContentBasedOnPrice()">Sort by Price</a></td>
+        </tr>
+        <tr>
+ <td><input type="button" value="Sort by Supplier" onclick="sortArrayContentBasedOnSupplier()" /></td>
+<td><a href='#Supplier' onclick="sortArrayContentBasedOnSupplier()">Sort by Supplier</a></td>
+        </tr>
+        <tr>
+ <td><input type="button" value="Sort by Manufacture" onclick="sortArrayContentBasedOnManufacture()" /></td>
+ <td><a href='#Manufacturer' onclick="sortArrayContentBasedOnManufacture()">Sort by Manufacture</a></td>
+ </table>
+
+    <script>
+        var elements = [
+            { SNo: 1, name: "TV", price: 50000, supplier: "abc", manufacture: "soney" },
+            { SNo: 2, name: "mobile", price: 40000, supplier: "xyz", manufacture: "moto" },
+            { SNo: 3, name: "laptop", price: 150000, supplier: "mnc", manufacture: "lenova" },
+            { SNo: 4, name: "refrigerator", price: 30000, supplier: "anc", manufacture: "lg" },
+            { SNo: 5, name: "car", price: 1500000, supplier: "uvc", manufacture: "volvo" },
+            { SNo: 6, name: "bike", price: 200000, supplier: "re", manufacture: "royal" },
+        ];
+
+        function readArrayContent() {
+            var tableBody = document.getElementById("table-body");
+            tableBody.innerHTML = "";
+
+            for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                var row = "<tr><td>" + element.SNo + "</td><td>" + element.name + "</td><td>" + element.price + "</td><td>" + element.supplier + "</td><td>" + element.manufacture + "</td></tr>";
+                tableBody.innerHTML += row;
+            }
+        }
+
+        function sortArrayContentBasedOnSNo() {
+            elements.sort(function (a, b) {
+                return a.SNo - b.SNo;
+            });
+            readArrayContent();
+        }
+
+        function sortArrayContentBasedOnName() {
+            elements.sort(function (a, b) {
+                if (a.name > b.name) {
+                    return 1;
+                } else if (a.name < b.name) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            readArrayContent();
+        }
+
+        function sortArrayContentBasedOnPrice() {
+            elements.sort(function (a, b) {
+                return a.price - b.price;
+            });
+            readArrayContent();
+        }
+
+        function sortArrayContentBasedOnSupplier() {
+            elements.sort(function (a, b) {
+                if (a.supplier > b.supplier) {
+                    return 1;
+                } else if (a.supplier < b.supplier) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            readArrayContent();
+        }
+
+        function sortArrayContentBasedOnManufacture() {
+            elements.sort(function (a, b) {
+                if (a.manufacture > b.manufacture) {
+                    return 1;
+                } else if (a.manufacture < b.manufacture) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            readArrayContent();
+        }
+    </script>
+
+</body>
+</html>

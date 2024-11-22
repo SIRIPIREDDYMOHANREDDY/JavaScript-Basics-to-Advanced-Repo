@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+  function registration(){
+if(document.forms[0].firstName.value.length == 0){
+alert("pls enter first name");
+document.forms[0].firstName.focus();
+return false;
+}
+if(document.forms[0].lastName.value.length == 0){
+alert("pls enter last name");
+document.forms[0].lastName.focus();
+return false;
+}
+if(document.forms[0].age.value.length == 0){
+alert("pls enter age");
+document.forms[0].age.focus();
+return false;
+}
+if(document.forms[0].email.value.length == 0){
+alert("pls enter email");
+document.forms[0].email.focus();
+return false;
+}
+if(document.forms[0].address.value.length == 0){
+ alert("pls enter address");
+document.forms[0].address.focus();
+return false;
+}
+}
+  </script>
+ </head>
+ <body>
+  <form action = "success.html">
+First Name : <input type = "text" name = "firstName"> <br>
+Last Name: <input type = "text" name = "lastName"> <br>
+Age <input type = "text" name = "age"> <br>
+Email: <input type = "text" name = "email"> <br>
+Address: <input type = "text" name = "address"> <br>
+<input type = "submit" value = "submit" onclick = "return registration()">
+</form>
+ </body>
+</html>

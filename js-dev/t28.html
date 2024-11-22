@@ -1,0 +1,28 @@
+<select id="s1" multiple>
+    <option value="5">Option 5</option>
+    <option value="3">Option 3</option>
+    <option value="2">Option 2</option>
+    <option value="4">Option 4</option>
+    <option value="1">Option 1</option>
+</select>
+<input type="button" value="Sort Options" onclick="sortOptions()" />
+
+<script>
+    function sortOptions() {
+        var s1 = document.getElementById("s1");
+        var allOptions = Array.from(s1.options); // Convert options to an array
+
+        // Sort options based on their value
+        allOptions.sort(function (a, b) {
+            return a.value - b.value;
+        });
+
+        // Clear the existing options in the select element
+        s1.innerHTML = "";
+
+        // Add the sorted options back to the select element
+        allOptions.forEach(function (option) {
+            s1.add(option);
+        });
+    }
+</script>

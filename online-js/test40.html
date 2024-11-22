@@ -1,0 +1,49 @@
+<p id ="p1">initial content</p>
+
+<input type="button"
+value ="sort"
+onclick="sortElements()"/>
+
+<input type="button"
+value ="populate array content"
+onclick="readArrayContent()"/>
+
+<script>
+var elements =["abc", "xyz","Test","ABC","test","pqr","Hello","hello"];
+function readArrayContent()
+{
+document.getElementById("p1").innerHTML=elements.join(", ");
+	}
+function sortElements()
+{
+	//elements.sort(function(a, b){return a-b});
+	/*elements.sort(function(a, b){
+		if(a > b){
+			return 1;
+			}
+			else if(a < b){
+				return -1;
+				}
+				else{
+					return 0;
+					}
+					});
+					*/
+elements.sort(function(a, b){
+	var v1 = a.toLowerCase();
+	var v2 = b.toLowerCase();
+		if(v1 > v2){
+			return 1;
+			}
+			else if(v1 < v2){
+				return -1;
+				}
+				else{
+					return 0;
+					}
+					});
+
+readArrayContent();
+	}
+</script>
+	

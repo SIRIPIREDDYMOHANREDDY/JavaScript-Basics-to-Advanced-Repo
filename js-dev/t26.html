@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+   <script>
+     function validate(){
+		 var f1 = document.forms[0];
+		 var fn = f1.firstName;
+		 if(fn.value.length == 0){
+             alert("enter your firstName");
+			 fn.focus();
+			 return false;
+		 }
+		 
+		 var ln = f1.lastName;
+		 if(ln.value.length == 0){
+             alert("enter your lastName");
+			 ln.focus();
+			 return false;
+		 }
+
+		 var age = f1.age;
+		 if(age.value.length == 0){
+             alert("enter your age");
+			 age.focus();
+			 return false;
+		 }
+	 }
+   </script>
+ </head>
+ <body>
+  <form action = "success.html">
+     FirstName : <input type = "text" name = "firstName"></br>
+     LastName : <input type = "text" name = "lastName"></br>
+     Age : <input type = "text" name = "age"></br>
+	 <input type = "submit" value = "submit" onclick = "return validate()">
+     
+  </form>
+ </body>
+</html>

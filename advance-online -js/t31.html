@@ -1,0 +1,21 @@
+<p id = "p1">Inital content</p>
+<input type = "button" value = "populate array" onclick ="sortArray()">
+<input tyep = "button" value = "sortArray" onclick = "SortArray()">
+<script>
+    var p1 = documnet.getElementById("p1");
+    var array1 = [6, 3, 9, 4, 2];
+    var array2 = [7, 8, 3, 6, 5, 7, 8, 9];
+    var array3 = new Array();
+    function sortArray(){
+
+         for(var i = 0; i < array1.length; i++){
+            array3[i] = array1[i];
+         }
+         for(var j = 0; j < array2.length; j++){
+             array3[i] = array2[j];
+         }
+    }
+    arraySort.sort(function(a, b) {
+             return a.value - b.value;
+    });
+</script>

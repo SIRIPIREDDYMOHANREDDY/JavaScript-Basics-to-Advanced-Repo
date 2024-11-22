@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	body{
+		background-color:rgb(55,678,536);
+	}
+  </style>
+  <script>
+  function validate() {
+      var f1 = document.forms[0];
+      var param1 = f1.param1;
+      var param1Error = document.getElementById("param1Error");
+      var param2 = f1.param2;
+      var param2Error = document.getElementById("param2Error");
+      var status = true;
+
+      // Validate param1
+      if (param1.value.length == 0) {
+          param1Error.style.color = "red";
+          param1Error.innerHTML = "Please enter Parameter1";
+          param1.focus();
+          status = false;
+      } else {
+          param1Error.innerHTML = "";
+          param2.focus(); // Move focus to param2 after param1 is filled
+      }
+
+      // Validate param2
+      if (status && param2.value.length == 0) { // Only validate param2 if param1 is filled
+          param2Error.style.color = "red";
+          param2Error.innerHTML = "Please enter Parameter2";
+          param2.focus();
+          status = false;
+      } else {
+          param2Error.innerHTML = "";
+      }
+
+      return status;
+  }
+
+  window.onload = function() {
+      document.forms[0].param1.focus(); // Focus on param1 when the page loads
+  }
+  </script>
+</head>
+<body>
+  <form action="success.html">
+      Parameter1: <input type="text" name="param1"> <span id="param1Error"></span> <br>
+      Parameter2: <input type="text" name="param2"> <span id="param2Error"></span> <br>
+      <input type="submit" value="Submit" onclick="return validate()">
+      <input type="reset" value="reset" onclick="return validate()">
+  </form>
+</body>
+</html>

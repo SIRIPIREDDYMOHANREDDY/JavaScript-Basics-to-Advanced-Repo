@@ -1,0 +1,251 @@
+<form>
+    First Name: <input type="text" name="firstName" onblur="trimInput(this)"> <br>
+    Age: <input type="number" name="age" onblur="trimInput(this)"> <br>
+    Email: <input type="text" name="email" onblur="trimInput(this)"> <br>
+    Password: <input type="text" name="password" onblur="trimInput(this)"/><br>
+    Address: <input type="text" name="address" onblur="trimInput(this)"/><br>
+    Gender:
+    <input type="radio" name="gender" value="m"> Male &nbsp;
+    <input type="radio" name="gender" value="f"> Female &nbsp;
+    <input type="radio" name="gender" value="o"> Other <br>
+    <table>
+			<tr>
+				<td>
+					<select id="from" multiple>
+						<option value="1">Inter</option>
+						<option value="2">BE</option>
+						<option value="3">BTech</option>
+						<option value="4">MBA</option>
+						<option value="5">MCA</option>
+						<option value="6">Bcom</option>
+					</select>
+				</td>
+				<td>
+					<input type="button" value=">>" onclick="addOptions()"/></br>
+					<input type="button" value="<<" onclick="removeOptions()"/> <br/>
+				</td>
+				<td>
+					Education </br>
+					<select id="to" multiple>
+						
+					</select>
+				</td>
+			</tr>
+		</table>
+		Skills:
+			<input type="checkbox" name="skill" value="c" onclick="control()">C</input>
+			<input type="checkbox" name="skill" value="c++" onclick="control()">C++</input>
+			<input type="checkbox" name="skill" value="java" onclick="control()">Java</input>
+			<input type="checkbox" name="skill" value="html & css" onclick="control()">Html & CSS</input>
+			<input type="checkbox" name="skill" value="js" onclick="control()">JavaScript</input>
+			<input type="checkbox" name="skill" value="ang" onclick="control()">Angular</input>
+			<input type="checkbox" name="skill" value="spring" onclick="control()">Spring</input>
+			<input type="checkbox" name="skill" value="react" onclick="control()">React</input>
+			<input type="checkbox" name="skill" value="nodejs" onclick="control()">NodeJs</input></br>
+		Select all Skills:
+			<input type="checkbox" name="skillController" onclick="selectAll()"/></br>
+		<input type="submit" value="submit" onclick="return registrationForm()">
+</form>
+
+<script>
+    var f1 = document.forms[0];
+
+    function trimInput(field) {
+        field.value = field.value.trim();
+    }
+	var f1 = document.forms[0];
+	function registrationForm() {
+		var fName = f1.firstName;
+		if(fName.value.length < 4 || fName.value.length > 40){
+			alert("First Name should be min 4 and max 40");
+			fName.focus();
+			return false;
+		}
+		function trimInput(field) {
+        field.value = field.value.trim();
+    }
+
+		var age = f1.age;
+		if(age.value < 15 || age.value > 110){
+			alert("age should be min 15 ang max 110");
+			age.focus();
+			return false;
+		}
+
+		var email = f1.email;
+		var e1 = email.value;
+		var atIndex = e1.indexOf('@');
+		if(atIndex == -1)
+		{
+			alert("Email should have min one @");
+			email.focus();
+			return false;
+		}
+		var atIndex1 = e1.indexOf('@', atIndex + 1);
+		if(atIndex1 != -1)
+		{
+			alert("Email should not have morethan one @");
+			email.focus();
+			return false;
+		}
+		var dot = e1.indexOf('.', atIndex + 1);
+		if(dot == -1)
+		{
+			alert("Email should have one '.' after @");
+			email.focus();
+			return false;
+		}
+		var adjDot = e1.indexOf('..');
+		if(adjDot != -1)
+		{
+			alert("no two dots together '..'");
+			email.focus();
+			return false;
+		}
+		var A = e1.indexOf('.@');
+		var B = e1.indexOf('@.');
+		if(A != - 1 || B != -1)
+		{
+			alert("In Email dot and @ should not be together");
+			email.focus();
+			return false;
+		}
+
+		var password = f1.password;
+		if(password.value.length < 12 ){
+			alert("plese enter 12 character");
+			password.focus();
+			return false; 
+		}
+
+		var passwordL = password.value;
+		var hasLowerCase = false;
+		for(var i = 0; i < passwordL.length; i++ ){
+			if(passwordL.charAt(i) >= 'a' && passwordL.charAt(i) <= 'z'){
+				hasLowerCase = true;
+				break;
+			}
+        }
+		if(!hasLowerCase){  
+			alert("Pls supply one lower case");
+			password.focus();
+			return false; 
+		}
+		
+		var passwordU = password.value;
+		var hasUpperCase = false;
+		for(var i = 0; i < passwordU.length; i++ ){
+			if(passwordU.charAt(i) >= 'A' && passwordU.charAt(i) <= 'Z'){
+				hasUpperCase = true;
+				break; 
+			}
+        }
+		if(!hasUpperCase){  
+			alert("plse supply one upper case");
+			password.focus();
+			return false; 
+		}
+
+		var address = f1.address;
+		if(address.value.length < 40 || address.value.length > 150)
+		{
+			alert("address should contains min 40 and max 150 characters");
+			address.focus();
+			return false;
+		}
+
+		var g1 = f1.gender;
+		var flag = false;
+		for(var i = 0; i < g1.length; i++) {
+			if(g1[i].checked) {
+				flag = true;
+				break;
+			}
+		}
+		if(!flag) {
+			alert("Pls select gender");
+			g1[0].focus();
+			return false;
+		}
+		
+		var skills = f1.skill;
+		var skillController = f1.skillController;
+		var flag = false;
+		var count = 0;
+		for(var i = 0; i < skills.length; i++)
+		{
+			if(skills[i].checked)
+			{
+				if(count > 3)
+				{
+					flag = true;
+					break;
+				}
+				count++;
+			}
+		}
+		if(!flag)
+		{
+			alert("pls select min 5 skills")
+			skills[0].focus;
+			return false;
+		}
+
+		var from = document.getElementById("from");
+		var to = document.getElementById("to");
+		var toOptions = to.options;
+		if(toOptions.length < 3){
+			alert("Select min 3 educations");
+          document.getElementById("from").focus();
+			return false;
+		}
+	 }
+	 function control(){
+	  	var myForm = document.forms[0];
+		var skills = myForm.skill;
+		var skillController = myForm.skillController;
+		var status = true;
+		for(var i = 0; i < skills.length; i++)
+		{
+			if(!skills[i].checked)
+			{
+				status = false;
+				break;
+			}
+		}
+		skillController.checked = status;
+	}
+	function selectAll(){
+		var myForm = document.forms[0];
+		var skills = myForm.skill;
+		var skillController = myForm.skillController;
+		for(var i = 0; i < skills.length; i++)
+		{
+			skills[i].checked = skillController.checked;
+		}
+	}
+	function addOptions(){
+		var from = document.getElementById("from");
+		var to = document.getElementById("to");
+		var fromOptions = from.options;
+		for(var i = 0; i < fromOptions.length; i++)
+		{
+			if(fromOptions[i].selected)
+			{
+				to.add(fromOptions[i]);
+				i--;
+			}
+		}
+	}
+	function removeOptions(){
+		var from = document.getElementById("from");
+		var to = document.getElementById("to");
+		var toOptions = to.options;
+		for(var i = 0; i < toOptions.length; i++){
+			if(toOptions[i].selected){
+				from.add(toOptions[i]);
+				i--;
+			}
+		}
+	}
+</script>

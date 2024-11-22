@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>Document</title>
+    <style>
+        /* Basic styling for form alignment */
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .form-row label {
+            width: 100px;
+            margin-right: 10px;
+            text-align: right;
+        }
+        .form-row input, .form-row textarea, .form-row select {
+            flex: 1;
+        }
+    </style>
+    <script>
+        function registrationForm() {
+            var f1 = document.forms[0];
+            var fname = f1.firstName;
+            if (fname.value.length == 0) {
+                alert("Please enter first name");
+                fname.focus();
+                return false;
+            }
+            var lname = f1.lastName;
+            if (lname.value.length == 0) {
+                alert("Please enter last name");
+                lname.focus();
+                return false;
+            }
+            var age = f1.age;
+            if (age.value.length == 0) {
+                alert("Please enter age");
+                age.focus();
+                return false;
+            }
+            var em = f1.email;
+            if (em.value.length == 0) {
+                alert("Please enter email");
+                em.focus();
+                return false;
+            }
+            var u = f1.username;
+            if (u.value.length == 0) {
+                alert("Please enter username");
+                u.focus();
+                return false;
+            }
+            var password = f1.password;
+            if (password.value.length == 0) {
+                alert("Please enter password");
+                password.focus();
+                return false;
+            }
+            var address = f1.address;
+            if (address.value.length == 0) {
+                alert("Please enter address");
+                address.focus();
+                return false;
+            }
+            var g1 = f1.gender;
+            var flag = false;
+            for (var i = 0; i < g1.length; i++) {
+                if (g1[i].checked) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                alert("Please select gender");
+                g1[0].focus();
+                return flag;
+            }
+            var s1 = f1.skill;
+            var flag1 = false;
+            for (var i = 0; i < s1.length; i++) {
+                if (s1[i].checked) {
+                    flag1 = true;
+                    break;
+                }
+            }
+            if (!flag1) {
+                alert("Please select at least one skill");
+                s1[0].focus();
+                return flag1;
+            }
+            var d1 = f1.education;
+            if (d1.value == "pls") {
+                alert("Please select education");
+                d1.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="success.html">
+        <div class="form-row">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName">
+        </div>
+        <div class="form-row">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName">
+        </div>
+        <div class="form-row">
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age">
+        </div>
+        <div class="form-row">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div class="form-row">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div class="form-row">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div class="form-row">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" cols="10" rows="3"></textarea>
+        </div>
+        <div class="form-row">
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="m"> Male
+            <input type="radio" name="gender" value="f"> Female
+            <input type="radio" name="gender" value="o"> Other
+        </div>
+        <div class="form-row">
+            <label>Skill:</label>
+            <input type="checkbox" name="skill" value="c"> C
+            <input type="checkbox" name="skill" value="c++"> C++
+            <input type="checkbox" name="skill" value="java"> Java
+            <input type="checkbox" name="skill" value="angular"> Angular
+        </div>
+        <div class="form-row">
+            <label for="education">Education:</label>
+            <select id="education" name="education">
+                <option value="pls">Please select</option>
+                <option value="be">BE</option>
+                <option value="mca">MCA</option>
+                <option value="mba">MBA</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <input type="submit" value="Submit" onclick="return registrationForm()">
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<div id="d1">initial</div>
+
+<input type="button" value="print object" onclick="readObject()">
+
+
+<script>
+var obj ={name:"TV", price:50000,brand:"sony"};
+function readObject()
+{
+	var str = obj.name+ ", "+obj.price +", "+obj.brand;
+	document.getElementById("d1").innerHTML = str;
+	}
+	</script>

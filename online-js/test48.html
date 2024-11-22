@@ -1,0 +1,53 @@
+<form>
+	Category: 
+	<select name="category" onchange="populateCategory()">
+		<option value="0">SELECT</option>
+		<option value="1">Groceries</option>
+		<option value="2">Electronics</option>
+		<option value="3">Clothes</option>
+	</select> 
+	<br>
+	<div id="categoryDiv">
+		Product: 
+		<select name="product" onclick="checkCategorySelection()">
+			<option value="0">SELECT CATEGORY</option>
+		</select>
+	</div>
+	...<br>
+	...<br>
+	...<br>
+	...<br>
+</form>
+
+<script>
+	function checkCategorySelection() {
+		var myForm = document.forms[0];
+		var myCategory = myForm.category;
+		if (myCategory.value == "0") {
+			alert("PLEASE SELECT CATEGORY FIRST");
+			myCategory.focus();
+		}
+	}
+
+	function populateCategory() {
+		var d1 = "Product: <select name='product' onclick='checkCategorySelection()'>" + 
+				 "<option value='0'>SELECT PRODUCT</option>";
+		var myForm = document.forms[0];
+		var myCategory = myForm.category;
+		if (myCategory.value == "1") {
+			d1 += "<option value='1'>Rice</option>";
+			d1 += "<option value='2'>Oil</option>";
+			d1 += "<option value='3'>Dall</option>";
+		} else if (myCategory.value == "2") {
+			d1 += "<option value='4'>TV</option>";
+			d1 += "<option value='5'>Mobile</option>";
+			d1 += "<option value='6'>Laptop</option>";
+		} else if (myCategory.value == "3") {
+			d1 += "<option value='7'>Shirts</option>";
+			d1 += "<option value='8'>Pants</option>";
+			d1 += "<option value='9'>Jackets</option>";
+		}
+		d1 += "</select>";
+		document.getElementById("categoryDiv").innerHTML = d1;
+	}
+</script>

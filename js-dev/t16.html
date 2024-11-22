@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+function change(){
+	var e1 = document.getElementById("a1");
+	var e2 = document.getElementById("a2");
+var temp = e1.innerHTML;
+e1.innerHTML = e2.innerHTML;
+e2.innerHTML = temp;
+ }
+  </script>
+ </head>
+ <body>
+  <div id = "a1">This is from a1</div>
+  <span id ="a2">This is from a2</span>
+  <input type ="button" value = "button" onclick = "change()">
+ </body>
+</html>

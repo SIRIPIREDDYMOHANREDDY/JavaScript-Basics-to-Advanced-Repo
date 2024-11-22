@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+     function validate()
+	 {
+		 var f1 = document.forms[0];
+		 var status = true;
+	   	 var FirstName=document.getElementById("FirstName");
+		 if(f1.firstName.value.length == 0)
+		 {
+			 FirstName.style.color="red";
+			 FirstName.innerHTML="pls enter firstName";
+			 f1.firstName.focus();
+			 status = false;
+		 }
+		 else
+		 {
+			 document.getElementById("FirstName")="";
+		 }
+		 return status;
+	 }
+  </script>
+ </head>
+ <body>
+  <form action = "success.html">
+     FirstName: <input type = "text" name = "firstname"><span id = "FirstName"></span><br>
+     LastName: <input type = "text" name = "lastname"><span id = "LastName"></span><br>
+     Age: <input type = "text" name = "firstname"><span id = "FirstName"></span><br>
+     Email: <input type = "text" name = "email"><span id = "Email"></span><br>
+     Address: <textarea  name = "address" cols = "10" rows = "5"></textarea><span id = "Address"></span><br>
+	 Gender:
+	 <input type = "radio" name = "gender" value = "m"> Male <span id = "Male"></span> &nbsp;
+	 <input type = "radio" name = "gender" value = "f"> FeMale <span id = "FeaMale"></span> &nbsp;
+	 <input type = "radio" name = "gender" value = "o"> Other  <span id = "Other"></span> <br>
+	 Skills:
+	  <input type = "checkbox" name = "skill" value = "c"> C &nbsp; <span id = "C"></span>
+	  <input type = "checkbox" name = "skill" value = "c++"> C++ &nbsp; <span id = "C++"></span> 
+	  <input type = "checkbox" name = "skill" value = "ja"> Java &nbsp; <span id = "Java"></span> <br>
+	  Education:
+	    <select name = "education">
+          <option name = "">Plse select</option>
+          <option name = "be">BE</option>
+          <option name = "me">ME</option>
+          <option name = "mca">MCA</option>
+		</select> <br>
+		<input type = "submit" value = "submit" onclick = "return validate()">
+  </form>
+ </body>
+</html>

@@ -1,0 +1,48 @@
+<form action="">
+	Email: <input type="text" name="email" onblur="validate(this)"/>
+		   <span id="emailError"></span>
+</form>
+
+<script>
+	function validate(field)
+	{
+		var value = field.value;
+		var emailError = document.getElementById("emailError");
+		var atIndex = value.indexOf('@');
+		var atIndex1 = value.indexOf('@', atIndex + 1);
+		var dot = value.indexOf('.', atIndex + 1);
+		var adjDot = value.indexOf('..');
+		if(atIndex == -1)
+		{
+			emailError.innerHTML = "should have @";
+			emailError.style.color="red";
+			field.focus();
+			return;
+		}
+		else if(atIndex1 != -1)
+		{
+			emailError.innerHTML = "should not have morethan one @";
+			emailError.style.color="red";
+			field.focus();
+			return;
+		}
+		else if(dot == -1)
+		{
+			emailError.innerHTML = "should have one '.' after @";
+			emailError.style.color="red";
+			field.focus();
+			return;
+		}
+		else if(adjDot != -1)
+		{
+			emailError.innerHTML = "no two dots together '..'";
+			emailError.style.color="red";
+			field.focus();
+			return;
+		}
+		else
+		{
+			emailError.innerHTML = "";
+		}
+	}
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <script>
+  function test(){
+	  var v1 =document.getElementById("e1").innerHTML;
+	  var v2 =document.getElementById("e2").innerHTML;
+	  document.getElementById("e1").innerHTML = v2;
+	  document.getElementById("e2").innerHTML = v1;
+	  }
+  </script>
+ </head>
+ <body>
+  <span id = "e1"> first span </span> <br>
+  <span id = "e2"> 2nd span </span> <br>
+  <input type  = "button" value ="button" onclick = "test()">
+ </body>
+</html>
+
+
+<!-- we can refer or repalce through .innerHTML in enire document -->
